@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baby Style Clock</title>
+
+  <!-- Google Font for a friendly look -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Background with soft clouds */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Neue', cursive, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      backdrop-filter: brightness(0.8);
+    }
+
+    #clock {
+      background: #e0f7fa;
+      border-radius: 50%;
+      width: 280px;
+      height: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3.5rem;
+      color: #0277bd;
+      box-shadow:
+        0 0 20px #81d4fa,
+        inset 0 0 40px #b3e5fc;
+      border: 8px solid #81d4fa;
+      user-select: none;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    #clock:hover {
+      transform: scale(1.1);
+      box-shadow:
+        0 0 30px #4fc3f7,
+        inset 0 0 60px #4fc3f7;
+    }
+
+    /* Cute eyes below the clock as decoration */
+    #clock::after {
+      content: "👶";
+      position: absolute;
+      bottom: 15px;
+      font-size: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock">-- : -- : -- --</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+
+      let ampm = hours >= 12 ? "PM" : "AM";
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+
+      const hh = String(hours).padStart(2, "0");
+      const mm = String(minutes).padStart(2, "0");
+      const ss = String(seconds).padStart(2, "0");
+
+      const time = `${hh} : ${mm} : ${ss} ${ampm}`;
+      document.getElementById("clock").textContent = time;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
+
+</html>
