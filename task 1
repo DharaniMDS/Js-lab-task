@@ -14,3 +14,32 @@ console.log("Updated age:", age);
 const country = "India";
 console.log("Country:", country);
 
+
+task 2
+
+let num = 10; 
+let str = "Hello"; 
+let isActive = true; 
+let emptyValue = null;
+let notAssigned; // Undefined
+let person = { name: "John", age: 25 }; 
+let uniqueID = Symbol("id"); 
+
+console.log(typeof num);    
+console.log(typeof str);       
+console.log(typeof isActive);    
+console.log(typeof emptyValue);
+console.log(typeof notAssigned);
+console.log(typeof person);      
+console.log(typeof uniqueID);  
+
+let numberAsString = String(123);
+console.log(numberAsString, typeof numberAsString); 
+
+let stringAsNumber = Number("456");
+console.log(stringAsNumber, typeof stringAsNumber)
+
+console.log("5" + 2); // "52" → string concatenation
+console.log("5" - 2); // 3 → string converted to number
+console.log(true + 1); // 2 (true = 1)
+console.log(false + 1); 
